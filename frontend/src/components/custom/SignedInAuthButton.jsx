@@ -17,7 +17,10 @@ function SignedInAuthButton() {
         return null
     }else{
         return (
-            <Button onClick={signInWithGoogle} variant={"secondary"} className="w-full text-white border-zinc-200 h-11">Continue with Google</Button>
+            <Button onClick={signInWithGoogle} variant={"secondary"} className="w-full text-white border-zinc-200 h-11">
+                <img src="logo/google.png" alt="google" className='size-5'/>
+                Continue with Google
+            </Button>
         )
     }
 }
