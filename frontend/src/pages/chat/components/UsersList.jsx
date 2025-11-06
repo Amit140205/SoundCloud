@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useUserStore } from '../../../store/useUserStore'
 import { ScrollArea } from '../../../components/ui/scroll-area'
 import UsersListSkeleton from '../../../components/skeleton/UsersListSkeleton'
 import { Avatar, AvatarFallback, AvatarImage } from '../../../components/ui/avatar'
+import { useUser } from '@clerk/clerk-react'
 
 function UsersList() {
-    const {users,selectedUser,isLoading,setSelectedUser,onlineUsers} = useUserStore()
+    const {users,selectedUser,isLoading,setSelectedUser,onlineUsers,fetchUsers} = useUserStore()
+    const {user} = useUser()
+    useEffect(() => {
+        if (user) fetchUsers();
+      }, [user, fetchUsers]);
   return (
     <div className='border-r border-zinc-800'>
         <div className='flex flex-col h-full'>
@@ -14,7 +19,7 @@ function UsersList() {
                     {isLoading ? (
                         <UsersListSkeleton/>
                     ) : (
-                        users.map((user)=>(
+                        users?.map((user)=>(
                             <div
                                 key={user._id}
                                 onClick={()=>setSelectedUser(user)}
