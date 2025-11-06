@@ -1,0 +1,18 @@
+import React from 'react'
+
+function FeatureGridSkeleton() {
+  return (
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8'>
+        {Array.from({length:6}).map((_,index)=>(
+            <div key={index} className='flex items-center bg-zinc-800/50 rounded-md overflow-hidden animate-pulse'>
+                <div className='w-16 h-16 sm:w-20 sm:h-20 bg-zinc-700 shrink-0'/>
+                <div className='flex-1 p-4'>
+                    <div className='h-4 w-3/4 mb-2 rounded bg-zinc-700'></div>
+                </div>
+            </div>
+        ))}
+    </div>
+  )
+}
+
+export default FeatureGridSkeleton
