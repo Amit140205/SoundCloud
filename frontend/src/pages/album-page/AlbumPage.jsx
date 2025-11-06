@@ -49,9 +49,8 @@ function AlbumPage() {
 
   return (
     <>
-    <Topbar/>
     <div className="h-full">
-      <ScrollArea className="h-full rounded-b-lg">
+      <ScrollArea className="h-full rounded-t-lg">
         {/* main content */}
         <div className="relative min-h-full">
           {/* gradient */}

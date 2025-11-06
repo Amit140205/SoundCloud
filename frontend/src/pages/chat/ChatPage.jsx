@@ -27,7 +27,7 @@ function ChatPage() {
 
   useEffect(() => {
     if (selectedUser) fetchMessages(selectedUser.clerkId);
-  }, [selectedUser, fetchMessages]);
+  }, [selectedUser, fetchMessages, messages]);
 
   // console.log(messages)
 
