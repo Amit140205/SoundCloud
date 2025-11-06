@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useUserStore } from '../../../store/useUserStore'
 import { ScrollArea } from '../../../components/ui/scroll-area'
 import UsersListSkeleton from '../../../components/skeleton/UsersListSkeleton'
 import { Avatar, AvatarFallback, AvatarImage } from '../../../components/ui/avatar'
-import { useUser } from '@clerk/clerk-react'
 
 function UsersList() {
-    const {users,selectedUser,isLoading,setSelectedUser,onlineUsers,fetchUsers} = useUserStore()
-    const {user} = useUser()
-    useEffect(() => {
-        if (user) fetchUsers();
-      }, [user, fetchUsers]);
+    const {users,selectedUser,isLoading,setSelectedUser,onlineUsers} = useUserStore()
+
+    // console.log(isLoading)
   return (
     <div className='border-r border-zinc-800'>
         <div className='flex flex-col h-full'>

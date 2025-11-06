@@ -103,7 +103,7 @@ export const useUserStore = create((set,get) => ({
     })
     try {
         const response = await axiosInstance.get(`/users/messages/${userId}`)
-        console.log(response)
+        // console.log(response)
         set({messages: response.data})
     } catch (error) {
         set({
